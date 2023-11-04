@@ -181,12 +181,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78078067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 18.52, z: 140.67}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.6971436, y: 4.159829, z: 6.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1999644353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &93023148
 GameObject:
@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 2
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -362,12 +363,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102873526}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 18.68, z: 82.53}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.6971436, y: 4.319829, z: -6.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1999644353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &201331772
 GameObject:
@@ -515,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 1
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -613,7 +615,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288461217}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1.3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -665,6 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 1
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -815,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 1
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -1358,6 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 2
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -1617,6 +1622,8 @@ Transform:
   - {fileID: 695395046}
   - {fileID: 2048236460}
   - {fileID: 963194228}
+  - {fileID: 102873527}
+  - {fileID: 78078068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048236459
@@ -1799,6 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d7eb30a7cd3940ad94710fbd090b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   playerTeam: 2
   scoreTracker: {fileID: 799797629}
   team1DropLocation: {fileID: 102873526}
@@ -1811,5 +1819,3 @@ SceneRoots:
   - {fileID: 47510980}
   - {fileID: 1999644353}
   - {fileID: 799797630}
-  - {fileID: 102873527}
-  - {fileID: 78078068}

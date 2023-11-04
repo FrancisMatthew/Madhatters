@@ -11,7 +11,6 @@ public class ScoreTrackerScript : MonoBehaviour
     {
         if (team1Members == 6)
         {
-            //Victory
             //Show victory text
             //Victory sound
             //Move camera to team 1
@@ -19,7 +18,6 @@ public class ScoreTrackerScript : MonoBehaviour
         }
         else if (team2Members == 6)
         {
-            //Victory
             //Show victory text
             //Victory sound
             //Move camera to team 2
