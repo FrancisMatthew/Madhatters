@@ -7,14 +7,28 @@ using UnityEngine.SceneManagement;
 public class UiController : MonoBehaviour
 {
 
-
+    public GameObject puasemenu;
     private void Start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            puasemenu.SetActive(true);
+            Debug.Log("Here");
+            Pause();
+
+        }
     }
     public void MainMenu()
     {
         Time.timeScale = 0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        
     }
 
     public void Pause()
@@ -28,6 +42,8 @@ public class UiController : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
@@ -38,6 +54,6 @@ public class UiController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
