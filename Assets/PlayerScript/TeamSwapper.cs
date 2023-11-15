@@ -11,6 +11,12 @@ public class TeamSwapper : MonoBehaviour
     public GameObject team1DropLocation;
     public GameObject team2DropLocation;
 
+    public ParticleSystem spawnParticlesTeam1;
+    public ParticleSystem spawnParticlesTeam2;
+
+    public ParticleSystem deathParticlesTeam1;
+    public ParticleSystem deathParticlesTeam2;
+
     void Start()
     {
         originalRotation = transform.rotation;
@@ -40,29 +46,80 @@ public class TeamSwapper : MonoBehaviour
     /// </summary>
     public void JoinTeam1()
     {
+        DeathParticlePlayer();
+
         scoreTracker.team1Members++;
         scoreTracker.team2Members--;
         playerTeam = 1;
 
         //Change models + Turn 180 degrees (Once art assets are in)
 
+        SpawnParticlePlayer();
+
         transform.position = team1DropLocation.transform.position;
         transform.rotation = originalRotation;
-        team1DropLocation.transform.position += new Vector3(0, 0, 5);
-        team2DropLocation.transform.position += new Vector3(0, 0, 5);
+
+        StartCoroutine(Team1SpawnMove());
+
     }
 
     public void JoinTeam2()
     {
+        DeathParticlePlayer();
+
         scoreTracker.team2Members++;
         scoreTracker.team1Members--;
         playerTeam = 2;
 
         //Change models + Turn 180 degrees (Once art assets are in)
 
+        SpawnParticlePlayer();
+
         transform.position = team2DropLocation.transform.position;
         transform.rotation = originalRotation;
+
+        StartCoroutine(Team2SpawnMove());
+    }
+
+    /// <summary>
+    /// Delays the moving of the spawn locations. May cause issues if game is played too fast. Keep an eye on this.
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator Team2SpawnMove()
+    {
+        yield return new WaitForSeconds(3);
         team2DropLocation.transform.position += new Vector3(0, 0, -5);
         team1DropLocation.transform.position += new Vector3(0, 0, -5);
+    }
+
+    public IEnumerator Team1SpawnMove()
+    {
+        yield return new WaitForSeconds(3);
+        team1DropLocation.transform.position += new Vector3(0, 0, 5);
+        team2DropLocation.transform.position += new Vector3(0, 0, 5);
+    }
+
+    public void SpawnParticlePlayer()
+    {
+        if (playerTeam == 1)
+        {
+            spawnParticlesTeam1.Play();
+        }
+        else
+        {
+            spawnParticlesTeam2.Play();
+        }
+    }
+
+    public void DeathParticlePlayer()
+    {
+        if (playerTeam == 1)
+        {
+            deathParticlesTeam1.Play();
+        }
+        else
+        {
+            deathParticlesTeam2.Play();
+        }
     }
 }
