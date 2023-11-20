@@ -31,13 +31,12 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine(AdjustCamera());
+        AdjustCamera();
 
     }
 
-    public IEnumerator AdjustCamera()
+    public void AdjustCamera()
     {
-        yield return new WaitForSeconds(0);
         switch(scoreTracker.team1Members)
         {
             case 0:
@@ -50,11 +49,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             case 1:
                 targetCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[2]);
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -65,11 +62,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             case 2:
                 targetCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[1]);
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -80,11 +75,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             case 3:
                 targetCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[0]);
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -95,11 +88,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             case 4:
                 targetCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[1]);
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -110,11 +101,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             case 5:
                 targetCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[2]);
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -125,13 +114,9 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
-                    Debug.Log(targetCameraPosition.ToString());
-                    Debug.Log(currentCameraPosition.ToString());
                 }
 
-                yield break;
+                break;
             case 6:
                 targetCameraPosition = t1Win.position;
                 currentCameraPosition = Vector3.Lerp(minPoint.position, maxPoint.position, distancePoints[pointIndex]);
@@ -142,14 +127,12 @@ public class CameraScript : MonoBehaviour
                     interpolationRatio = (float)elapsedFrames / interpolationFrameCount;
                     Vector3 interpolatedPosition = Vector3.Lerp(currentCameraPosition, targetCameraPosition, interpolationRatio);
                     mainCamera.transform.position = interpolatedPosition;
-                    Debug.Log(elapsedFrames.ToString());
-                    Debug.Log(interpolationRatio.ToString());
                 }
 
-                yield break;
+                break;
             default:
                 mainCamera.transform.position = Vector3.zero;
-                yield break;
+                break;
         }
     }
     
