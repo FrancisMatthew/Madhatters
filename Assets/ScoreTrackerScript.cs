@@ -9,20 +9,23 @@ public class ScoreTrackerScript : MonoBehaviour
 
     public ParticleSystem confettiTeam1;
     public ParticleSystem confettiTeam2;
+    bool confettiPlayed = false;
 
     void Update()
     {
-        if (team1Members == 6)
+        if (team1Members == 6 && !confettiPlayed)
         {
             confettiTeam1.Play();
+            confettiPlayed = true;
             //Show victory text
             //Victory sound
             //Move camera to team 1
             //After x seconds bring up victory menu
         }
-        else if (team2Members == 6)
+        else if (team2Members == 6 && !confettiPlayed)
         {
             confettiTeam2.Play();
+            confettiPlayed = true;
             //Show victory text
             //Victory sound
             //Move camera to team 2
