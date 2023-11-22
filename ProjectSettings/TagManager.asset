@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Pit
   - Ledge
+  - Late
+  - Early
+  - Activator
+  - Note
   layers:
   - Default
   - TransparentFX

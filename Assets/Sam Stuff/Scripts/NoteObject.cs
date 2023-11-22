@@ -5,9 +5,11 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
-
+    public bool isTeam1;
     public KeyCode keyToPress;
     public KeyCode keyToPress2;
+
+    public PlayerMovement playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,15 @@ public class NoteObject : MonoBehaviour
             if(canBePressed)
             {
                 Destroy(gameObject);
+
+                if (isTeam1 == true)
+                {
+                    playerScript.MoveLeft();
+                }
+                else
+                {
+                    playerScript.MoveRight();
+                }
             }
         }
 

@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 7323052446419972679}
   - component: {fileID: 6642317206014818851}
   - component: {fileID: 941808122129996368}
+  - component: {fileID: 7604410429291343047}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -132,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5298364844145115261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.848, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -141,7 +142,7 @@ Transform:
   - {fileID: 4922744242671252087}
   - {fileID: 7959180171367741871}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &7323052446419972679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePressed: 0
+  isTeam1: 0
   keyToPress: 97
   keyToPress2: 0
+  playerScript: {fileID: 0}
 --- !u!114 &6642317206014818851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +195,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3207624, y: 1, z: 1}
   m_Center: {x: 0.07260522, y: 0, z: 0}
+--- !u!114 &7604410429291343047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298364844145115261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f24a71055b18942870a3ef773394dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBePressed: 0
+  isTeam1: 0
+  keyToPress: 0
+  keyToPress2: 0
+  playerScript: {fileID: 0}
 --- !u!1 &7503224487219137199
 GameObject:
   m_ObjectHideFlags: 0

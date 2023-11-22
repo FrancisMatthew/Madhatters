@@ -27,7 +27,10 @@ public class EarlyTrigger : MonoBehaviour
         {
             if(canBePressed)
             {
-                Destroy(other.gameObject);
+                if (other.tag == "Note")
+                {
+                     Destroy(other.gameObject);
+                }
             }
         }
 
@@ -35,7 +38,10 @@ public class EarlyTrigger : MonoBehaviour
         {
             if (canBePressed)
             {
-                Destroy(other.gameObject);
+                if (other.tag == "Note")
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
 
