@@ -5,11 +5,14 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
-    public bool isTeam1;
+    public bool canBePressedEarly;
+
+    public int keyType;             //1 = A, 2 = D, 3 = Left Arrow, 4 = Right Arrow
     public KeyCode keyToPress;
     public KeyCode keyToPress2;
 
     public PlayerMovement playerScript;
+    public NoteHitParticlePlayer particlePlayScript;
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +27,35 @@ public class NoteObject : MonoBehaviour
         {
             if(canBePressed)
             {
-                Destroy(gameObject);
-
-                if (isTeam1 == true)
+                if (keyType == 1)
                 {
+                    particlePlayScript.AKeyHit();
+                    Debug.Log("ArrowHit");
                     playerScript.MoveLeft();
+                    Destroy(gameObject);
                 }
-                else
+                else if (keyType == 2)
                 {
-                    playerScript.MoveRight();
+                    particlePlayScript.DKeyHit();
+                    playerScript.MoveLeft();
+                    Destroy(gameObject);
                 }
+                else if (keyType == 3)
+                {
+                    particlePlayScript.LeftArrowHit();
+                    playerScript.MoveRight();
+                    Destroy(gameObject);
+                }
+                else if (keyType == 4)
+                {
+                    particlePlayScript.RightArrowHit();
+                    playerScript.MoveRight();
+                    Destroy(gameObject);
+                }
+            }
+            else if (canBePressedEarly)
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -54,7 +76,7 @@ public class NoteObject : MonoBehaviour
         }
         else if(other.tag == "Early")
         {
-            canBePressed = true;
+            canBePressedEarly = true;
         }
         else if(other.tag == "Late")
         {
@@ -70,12 +92,11 @@ public class NoteObject : MonoBehaviour
         }
         else if (other.tag == "Early")
         {
-            canBePressed = false;
+            canBePressedEarly = false;
         }
         else if (other.tag == "Late")
         {
             canBePressed = false;
-            Debug.Log("Late");
         }
     }
 }
