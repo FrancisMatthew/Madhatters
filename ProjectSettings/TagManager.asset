@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pit
+  - Ledge
+  - Late
+  - Early
+  - Activator
+  - Note
   layers:
   - Default
   - TransparentFX
