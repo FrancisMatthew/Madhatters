@@ -12,6 +12,10 @@ public class CountdownTimer : MonoBehaviour
     private float currentTime = 0;
     private bool isCounting = false;
     public int roundIndex = 1;
+
+    public AudioSource audioClick;
+    public AudioSource audioGo;
+
     //public CharacterMovement Character;
     void Start()
     {
@@ -53,6 +57,7 @@ public class CountdownTimer : MonoBehaviour
             if (isCounting)
             {
                 currentTime -= 1;
+                audioClick.Play();
 
                 if (currentTime <= 0)
                 {
@@ -69,7 +74,8 @@ public class CountdownTimer : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(.8f);
         timerText.text = "Round "+ roundIndex;
-        yield return new WaitForSecondsRealtime(.5f);
+        audioGo.Play();
+        yield return new WaitForSecondsRealtime(.8f);
 
         Time.timeScale = 1f;
         timerText.gameObject.SetActive(false);

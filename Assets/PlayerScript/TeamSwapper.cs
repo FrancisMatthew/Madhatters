@@ -6,16 +6,19 @@ public class TeamSwapper : MonoBehaviour
 {
     public Quaternion originalRotation;
     public int playerTeam;
+
     public ScoreTrackerScript scoreTracker;
+    public SpawnParticlePlayer particlePlayerReciever;
 
     public GameObject team1DropLocation;
     public GameObject team2DropLocation;
 
-    public ParticleSystem spawnParticlesTeam1;
-    public ParticleSystem spawnParticlesTeam2;
+    private Transform particlePlayLocation;     //Location for the particle for player spawning.
 
     public ParticleSystem deathParticlesTeam1;
     public ParticleSystem deathParticlesTeam2;
+
+    public AudioSource popAudio;
 
     void Start()
     {
@@ -54,12 +57,15 @@ public class TeamSwapper : MonoBehaviour
 
         //Change models + Turn 180 degrees (Once art assets are in)
 
-        SpawnParticlePlayer();
+        SpawnParticlePlayerCaller();
 
         transform.position = team1DropLocation.transform.position;
         transform.rotation = originalRotation;
+        transform.RotateAround(transform.position, transform.up, 180f);
+        popAudio.Play();
 
-        StartCoroutine(Team1SpawnMove());
+        team1DropLocation.transform.position += new Vector3(0, 0, 5);
+        team2DropLocation.transform.position += new Vector3(0, 0, 5);
 
     }
 
@@ -73,41 +79,29 @@ public class TeamSwapper : MonoBehaviour
 
         //Change models + Turn 180 degrees (Once art assets are in)
 
-        SpawnParticlePlayer();
+        SpawnParticlePlayerCaller();
 
         transform.position = team2DropLocation.transform.position;
         transform.rotation = originalRotation;
+        transform.RotateAround(transform.position, transform.up, 180f);
+        popAudio.Play();
 
-        StartCoroutine(Team2SpawnMove());
-    }
-
-    /// <summary>
-    /// Delays the moving of the spawn locations. May cause issues if game is played too fast. Keep an eye on this.
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator Team2SpawnMove()
-    {
-        yield return new WaitForSeconds(3);
         team2DropLocation.transform.position += new Vector3(0, 0, -5);
         team1DropLocation.transform.position += new Vector3(0, 0, -5);
+
     }
 
-    public IEnumerator Team1SpawnMove()
-    {
-        yield return new WaitForSeconds(3);
-        team1DropLocation.transform.position += new Vector3(0, 0, 5);
-        team2DropLocation.transform.position += new Vector3(0, 0, 5);
-    }
 
-    public void SpawnParticlePlayer()
+    public void SpawnParticlePlayerCaller()
     {
         if (playerTeam == 1)
         {
-            spawnParticlesTeam1.Play();
+
+            particlePlayerReciever.SpawnParticlePlayerTeam1();
         }
         else
         {
-            spawnParticlesTeam2.Play();
+            particlePlayerReciever.SpawnParticlePlayerTeam2();
         }
     }
 

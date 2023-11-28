@@ -15,6 +15,35 @@ public class NoteObject : MonoBehaviour
     public PlayerMovement playerScript;
     public NoteHitParticlePlayer particlePlayScript;
 
+    void Update()
+    {
+        if (Input.GetKeyDown("a"))
+        {
+            if (canBePressed)
+            {
+                particlePlayScript.AKeyHit();
+                playerScript.MoveLeft();
+                Destroy(gameObject);
+            }
+            else if (canBePressedEarly)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (Input.GetKeyDown("d"))
+        {
+            if (canBePressed)
+            {
+                particlePlayScript.DKeyHit();
+                playerScript.MoveLeft();
+                Destroy(gameObject);
+            }
+            else if (canBePressedEarly)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     
     public void HitLeft(string playerName) 
     { 
