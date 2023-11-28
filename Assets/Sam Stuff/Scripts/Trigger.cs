@@ -18,7 +18,7 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Note")
+        if (other.tag == "Note" || other.tag == "NoteRight")
         {
             Destroy(other.gameObject);
         }

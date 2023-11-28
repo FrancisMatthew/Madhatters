@@ -19,28 +19,34 @@ public class NoteObject : MonoBehaviour
     {
         if (Input.GetKeyDown("a"))
         {
-            if (canBePressed)
+            if (tag == "Note")
             {
-                particlePlayScript.AKeyHit();
-                playerScript.MoveLeft();
-                Destroy(gameObject);
-            }
-            else if (canBePressedEarly)
-            {
-                Destroy(gameObject);
+                if (canBePressed)
+                {
+                    particlePlayScript.AKeyHit();
+                    playerScript.MoveLeft();
+                    Destroy(gameObject);
+                }
+                else if (canBePressedEarly)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else if (Input.GetKeyDown("d"))
         {
-            if (canBePressed)
+            if (tag == "Note")
             {
-                particlePlayScript.DKeyHit();
-                playerScript.MoveLeft();
-                Destroy(gameObject);
-            }
-            else if (canBePressedEarly)
-            {
-                Destroy(gameObject);
+                if (canBePressed)
+                {
+                    particlePlayScript.DKeyHit();
+                    playerScript.MoveLeft();
+                    Destroy(gameObject);
+                }
+                else if (canBePressedEarly)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }

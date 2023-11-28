@@ -7,6 +7,8 @@ public class ScoreTrackerScript : MonoBehaviour
     public int team1Members = 3;
     public int team2Members = 3;
 
+    public int teamWon;
+
     public ParticleSystem confettiTeam1;
     public ParticleSystem confettiTeam2;
 
@@ -17,7 +19,7 @@ public class ScoreTrackerScript : MonoBehaviour
 
     public GameObject rope;
 
-    //There's probably a simpler way to do this but it works. We're not being marked on technical standards anyway.
+    //There's probably a simpler way to do this but it works.
     public Animator player1Animator;
     public Animator player2Animator;
     public Animator player3Animator;
@@ -41,13 +43,15 @@ public class ScoreTrackerScript : MonoBehaviour
             confettiTeam1.Play();
             GeneralVictory();
             Team1Rotate();
-            StartCoroutine(VictoryScreen(1));
+            teamWon = 1;
+            StartCoroutine(VictoryScreen());
         }
         else if (team2Members == 6 && !confettiPlayed)
         {
             confettiTeam2.Play();
             GeneralVictory();
-            StartCoroutine(VictoryScreen(2));
+            teamWon = 2;
+            StartCoroutine(VictoryScreen());
         }
     }
 
@@ -79,9 +83,9 @@ public class ScoreTrackerScript : MonoBehaviour
         player6.RotateAround(player6.transform.position, player6.transform.up, 180f);
     }
 
-    public IEnumerator VictoryScreen(int teamWon)
+    public IEnumerator VictoryScreen()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         
         if (teamWon == 1)
         {

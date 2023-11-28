@@ -7,6 +7,8 @@ public class TeamSwapper : MonoBehaviour
     public Quaternion originalRotation;
     public int playerTeam;
 
+    public int originalTeam;
+
     public ScoreTrackerScript scoreTracker;
     public SpawnParticlePlayer particlePlayerReciever;
 
@@ -60,8 +62,7 @@ public class TeamSwapper : MonoBehaviour
         SpawnParticlePlayerCaller();
 
         transform.position = team1DropLocation.transform.position;
-        transform.rotation = originalRotation;
-        transform.RotateAround(transform.position, transform.up, 180f);
+        PlayerRotator();
         popAudio.Play();
 
         team1DropLocation.transform.position += new Vector3(0, 0, 5);
@@ -82,8 +83,9 @@ public class TeamSwapper : MonoBehaviour
         SpawnParticlePlayerCaller();
 
         transform.position = team2DropLocation.transform.position;
-        transform.rotation = originalRotation;
-        transform.RotateAround(transform.position, transform.up, 180f);
+        PlayerRotator();
+
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);   
         popAudio.Play();
 
         team2DropLocation.transform.position += new Vector3(0, 0, -5);
@@ -91,6 +93,33 @@ public class TeamSwapper : MonoBehaviour
 
     }
 
+    public void PlayerRotator()
+    {
+        if (originalTeam == 1)
+        {
+            if (playerTeam == 1)
+            {
+                transform.rotation = originalRotation;
+            }
+            else if (playerTeam == 2)
+            {
+                transform.rotation = originalRotation;
+                transform.RotateAround(transform.position, transform.up, 180f);
+            }
+        }
+        else if (originalTeam == 2)
+        {
+            if (playerTeam == 1)
+            {
+                transform.rotation = originalRotation;
+                transform.RotateAround(transform.position, transform.up, 180f);
+            }
+            else if (playerTeam == 2)
+            {
+                transform.rotation = originalRotation;
+            }
+        }
+    }
 
     public void SpawnParticlePlayerCaller()
     {
