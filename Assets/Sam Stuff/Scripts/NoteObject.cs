@@ -7,6 +7,7 @@ public class NoteObject : MonoBehaviour
     public bool canBePressed;
     public bool canBePressedEarly;
 
+
     public int keyType;             //1 = A, 2 = D, 3 = Left Arrow, 4 = Right Arrow
     public KeyCode keyToPress;
     public KeyCode keyToPress2;
@@ -14,59 +15,75 @@ public class NoteObject : MonoBehaviour
     public PlayerMovement playerScript;
     public NoteHitParticlePlayer particlePlayScript;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      if(Input.GetKeyDown(keyToPress))
+    
+    public void HitLeft(string playerName) 
+    { 
+        if(playerName == "Player1") 
         {
-            if(canBePressed)
+            if (canBePressed)
             {
-                if (keyType == 1)
-                {
-                    particlePlayScript.AKeyHit();
-                    Debug.Log("ArrowHit");
-                    playerScript.MoveLeft();
-                    Destroy(gameObject);
-                }
-                else if (keyType == 2)
-                {
-                    particlePlayScript.DKeyHit();
-                    playerScript.MoveLeft();
-                    Destroy(gameObject);
-                }
-                else if (keyType == 3)
-                {
-                    particlePlayScript.LeftArrowHit();
-                    playerScript.MoveRight();
-                    Destroy(gameObject);
-                }
-                else if (keyType == 4)
-                {
-                    particlePlayScript.RightArrowHit();
-                    playerScript.MoveRight();
-                    Destroy(gameObject);
-                }
+
+                particlePlayScript.AKeyHit();
+                playerScript.MoveLeft();
+                Destroy(gameObject);
+
             }
             else if (canBePressedEarly)
             {
                 Destroy(gameObject);
             }
         }
-
-        if (Input.GetKeyDown(keyToPress2))
+        else if (playerName == "Player2")
         {
             if (canBePressed)
+            {
+                particlePlayScript.LeftArrowHit();
+                playerScript.MoveRight();
+                Destroy(gameObject);
+
+            }
+            else if (canBePressedEarly)
             {
                 Destroy(gameObject);
             }
         }
     }
+
+    public void HitRight(string playerName) 
+    {
+        if (playerName == "Player1")
+        {
+            if (canBePressed)
+            {
+                particlePlayScript.DKeyHit();
+                playerScript.MoveLeft();
+                Destroy(gameObject);
+
+            }
+            else if (canBePressedEarly)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if(playerName == "Player2")
+        {
+            if (canBePressed)
+            {
+                particlePlayScript.RightArrowHit();
+                playerScript.MoveRight();
+                Destroy(gameObject);
+
+            }
+            else if (canBePressedEarly)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {
