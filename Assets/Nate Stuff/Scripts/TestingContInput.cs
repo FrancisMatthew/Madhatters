@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class TestingContInput : MonoBehaviour
 {
     public PlayerInput playerInput;
+    public bool controllerInputActivated = false;
+
 
     [SerializeField] private Gamepad currentGamepadDevice;
     [SerializeField] private Keyboard currentKeyboardDevice;
@@ -14,40 +16,62 @@ public class TestingContInput : MonoBehaviour
 
     private void Awake()
     {
-        
-
         playerInput = GetComponent<PlayerInput>();
 
         currentKeyboardDevice = playerInput.GetDevice<Keyboard>();
         currentGamepadDevice = playerInput.GetDevice<Gamepad>();
-
-        
-
     }
 
+    private void Update()
+    {
+        if (!controllerInputActivated) 
+        {
+            if (Input.GetKeyDown(KeyCode.A)) 
+            {
+                
+            }
+            if (Input.GetKeyDown(KeyCode.D)) 
+            { 
+            
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) 
+            { 
+            
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow)) 
+            { 
+            
+            }
 
+
+
+
+        }
+    }
 
 
     public void ActivateLeft(InputAction.CallbackContext context) 
     {
-        if (context.performed) 
-        { 
+        if (context.performed)
+        {
             Debug.Log("Activate Left! " + context.phase + " - " + context.control);
         }
 
         Renderer objRend = this.gameObject.GetComponent<Renderer>();
         objRend.material = afterTest;
-        
+
     }
-     public void ActivateRight(InputAction.CallbackContext context) 
+    public void ActivateRight(InputAction.CallbackContext context) 
     {
-        if (context.performed) 
-        { 
-            Debug.Log("Activate Right! " + context.phase + " - " +context.control);
+        if (context.performed)
+        {
+            Debug.Log("Activate Right! " + context.phase + " - " + context.control);
         }
 
         Renderer objRend = this.gameObject.GetComponent<Renderer>();
         objRend.material = b4Test;
+
+
     }
 
 }

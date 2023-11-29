@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  controllerInputActivated: 1
   b4Test: {fileID: 2100000, guid: 22724d7ef08ba6a498134d7aa11a4903, type: 2}
   afterTest: {fileID: 2100000, guid: 2a12e60ea62efac4f8f8e3eb191dc4f8, type: 2}
 --- !u!114 &1237716755
@@ -248,6 +249,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0fe7efb8-2cb2-4dbe-9dcb-31f15578cc73
     m_ActionName: Player2/InteractRight[/Keyboard/rightArrow,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: faa6a42e-c9e9-4913-ab68-77edb8bae4a5
+    m_ActionName: Player1/Pause[/XInputControllerWindows/start,/XInputControllerWindows1/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbd0c162-83c6-49ed-8e61-34f965fe0788
+    m_ActionName: Player2/Pause[/XInputControllerWindows/start,/XInputControllerWindows1/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player2
@@ -571,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  controllerInputActivated: 1
   b4Test: {fileID: 2100000, guid: 71e41fbb803c7fa45880f06f24994ab0, type: 2}
   afterTest: {fileID: 2100000, guid: ce85e7178523b9142afa9a96ff3b99f4, type: 2}
 --- !u!114 &1914615324
@@ -662,6 +672,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0fe7efb8-2cb2-4dbe-9dcb-31f15578cc73
     m_ActionName: Player2/InteractRight[/Keyboard/rightArrow,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: faa6a42e-c9e9-4913-ab68-77edb8bae4a5
+    m_ActionName: Player1/Pause[/XInputControllerWindows/start,/XInputControllerWindows1/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbd0c162-83c6-49ed-8e61-34f965fe0788
+    m_ActionName: Player2/Pause[/XInputControllerWindows/start,/XInputControllerWindows1/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player1
