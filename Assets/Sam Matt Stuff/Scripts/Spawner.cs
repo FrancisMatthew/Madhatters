@@ -12,13 +12,14 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     float randomSpawn;
 
-    // Start is called before the first frame update
+    // Sets the random at the beginning of the game and starts the spawning of the notes
     void Start()
     {
         randomSpawn = Random.Range(1f,7f);
         StartCoroutine(spawnNote(randomSpawn, noteToSpawn));
     }
 
+    // Spawns the notes at the spawn point at random
     private IEnumerator spawnNote(float interval, GameObject note)
     {
         yield return new WaitForSeconds(interval);

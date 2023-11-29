@@ -11,13 +11,13 @@ public class NoteMove : MonoBehaviour
 
     public bool hasStarted;
 
-    // Start is called before the first frame update
+    // Sets the speed of which the notes move
     void Start()
     {
         beatTempo = beatTempo / 60f;
     }
 
-    // Update is called once per frame
+    // This lowers the notes
     void Update()
     {
         if(!hasStarted)

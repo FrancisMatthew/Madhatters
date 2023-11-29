@@ -7,9 +7,8 @@ public class EarlyTrigger : MonoBehaviour
     public bool canBePressed;
 
     public KeyCode keyToPress;
-    public KeyCode keyToPress2;
     
-
+    // The same as the trigger but for if the player presses the key early
     void OnTriggerEnter(Collider other)
     {
         if(Input.GetKeyDown(keyToPress))
@@ -22,17 +21,5 @@ public class EarlyTrigger : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(keyToPress2))
-        {
-            if (canBePressed)
-            {
-                if (other.tag == "Note" || other.tag == "NoteRight")
-                {
-                    Destroy(other.gameObject);
-                }
-            }
-        }
-
     }
 }

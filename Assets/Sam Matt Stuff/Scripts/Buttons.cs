@@ -16,28 +16,38 @@ public class Buttons : MonoBehaviour
     public KeyCode keyToPress;
     public KeyCode keyToPress2;
 
-    // Start is called before the first frame update
+    // Sets material for the cube destroyers at the beginning
     void Start()
     {
         theMR = GetComponent<MeshRenderer>();
     }
 
-
+    // When the notes go through the boxes they change colour
     private void OnTriggerEnter(Collider other)
     {
         noteInTrigger = other.gameObject;
         noteObjClassInTrigger = noteInTrigger.GetComponent<NoteObject>();
+        if (other.tag == "Note" || other.tag == "NoteRight")
+        {
+            theMR.material = pressedButton;
+        }
     }
 
+    // Resets the boxes back to the original colour when no Note is inside
     private void OnTriggerExit(Collider other)
     {
         noteInTrigger = null;
         noteObjClassInTrigger = null;
+        if (theMR.material = pressedButton)
+        {
+            ResetColour();
+        }
     }
+
 
     public void NotePassthrough(string playerName)
     {
-        theMR.material = pressedButton;
+        // theMR.material = pressedButton;
         Invoke("ResetColour", 0.3f);
         if (noteObjClassInTrigger != null && isLeft) 
         {
@@ -53,7 +63,7 @@ public class Buttons : MonoBehaviour
         }
     }
 
-
+    // Resets the box colour to the original
     public void ResetColour()
     {
         theMR.material = defaultButton;

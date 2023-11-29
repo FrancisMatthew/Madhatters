@@ -16,6 +16,7 @@ public class Trigger : MonoBehaviour
     {
     }
 
+    // This destroys the notes if the go below the threshold to save memory
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Note" || other.tag == "NoteRight")
